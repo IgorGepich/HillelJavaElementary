@@ -9,9 +9,9 @@ public class MainApp {
 		lesson01.minMax();
 		lesson01.centuryYear();
 		lesson01.highYear();
-		lesson01.digitSumm();
-		lesson01.twoDigitAfter();
 		lesson01.firstArray();
+		lesson01.twoDigitAfter();
+		lesson01.digitSumm();
 
 
 //		Not ready faculty tasks
