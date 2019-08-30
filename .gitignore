@@ -1,0 +1,28 @@
+# Compiled class file
+#*.class
+out/production/HillelPractice/ua/hillel/*.*
+out/production/HillelPractice/ua/hillel/UiUtils/*.*
+out/production/HillelPractice/META-INF/*.*
+
+src/ua/hillel/lessons/homeworktest
+
+# Package Files #
+#out/artifacts/FirstApplication_jar/*.*
+
+#.idea/
+.idea/*.xml
+.idea/artifacts/*.*
+
+#src/
+src/META-INF/*.*
+
+# Log file
+*.log
+
+# Package Files #
+#*.jar
+#*.war
+#*.ear
+#*.zip
+#*.tar.gz
+#.rar
