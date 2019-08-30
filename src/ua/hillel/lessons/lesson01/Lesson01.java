@@ -30,11 +30,11 @@ public class Lesson01 {
 				System.out.println(year + " is high year.");
 			}
 			else {
-				System.out.println(year + " is not high year>");
+				System.out.println(year + " is not high year.");
 			}
 		System.out.println(Constants.LINE_SEPARATOR);
 	}
-	public int[] array = new int[10];
+	private int[] array = new int[10];
 	public void firstArray() {
 		System.out.println(Constants.PROGRAM_NAME + "04 Task. Fill in integer array");
 		for (int arrayIndex = 0; arrayIndex < array.length; arrayIndex++){
