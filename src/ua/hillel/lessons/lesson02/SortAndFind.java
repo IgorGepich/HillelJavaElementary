@@ -13,6 +13,8 @@ public class SortAndFind {
  которую я не могу понять пока что и из-за этого проблемы.
  Ткните носом, если не сложно куда копать.
  Заранее благодарен
+ PS Class StudentClassroom не используется в программе. Создавал для помытки реализации поиска в полях объектов
+ массива через имплементацию интерфейса Comparable. Потом пошел по другому пути.
  */
 	public static StudentFactory studentFactory = new StudentFactory();
 	public static Student[] studentsArray = new Student[10];
