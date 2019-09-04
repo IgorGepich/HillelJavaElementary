@@ -53,7 +53,7 @@ public class Lesson01 {
 	}
 	private int digit = 15343;
 	private int sumDigit;
-	public void digitSumm(){
+	public void digitSum(){
 		System.out.println(Constants.PROGRAM_NAME + "06 Task. Sum of digits of a number");
 		while (digit != 0){
 			sumDigit += (digit % 10);
