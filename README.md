@@ -11,6 +11,6 @@ Given a series of numbers as a string, determine if the number represented by th
 You can expect all test case arguments to be strings representing values greater than 0.
 RU
 Программа просит пользователя ввести число с клавиатуры и проверяет делится ли число на 3.
-Дополнительные проверки: 
+<br>Дополнительные проверки:</br> 
 1. Проверка на ввод символов  @return error message
 2. Проверка на ввод 0 @return error message
