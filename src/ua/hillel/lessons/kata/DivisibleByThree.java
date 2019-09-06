@@ -13,7 +13,6 @@ public class DivisibleByThree {
 		String numberFromUser = scanner.nextLine();
 		int digitSum = 0;
 		String error = "\\D+";
-
 		if (numberFromUser.matches(error)){
 			errorMessage();
 			return;
@@ -24,6 +23,10 @@ public class DivisibleByThree {
 			digitSum = digitSum + numberFromUser.charAt(i);
 		}
 // check if variable digitSum is divisible by 3
+		if(numberFromUser.equals("0")){
+			System.out.println("Zero is not divisible by anything");
+			return;
+		}
 		if (digitSum % 3 == 0) {
 			System.out.println("This number is divisible by 3");
 		}
