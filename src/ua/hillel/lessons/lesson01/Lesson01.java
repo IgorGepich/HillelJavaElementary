@@ -1,6 +1,6 @@
 package ua.hillel.lessons.lesson01;
 
-import ua.hillel.lessons.Constants;
+import ua.hillel.lessons.Constants.Constants;
 
 import java.util.Arrays;
 

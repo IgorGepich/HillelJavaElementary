@@ -1,8 +1,8 @@
-package ua.hillel.lessons;
+package ua.hillel.lessons.lesson01;
 
 import ua.hillel.lessons.lesson01.Lesson01;
 
-public class MainApp {
+public class MainLesson01 {
 	public static void main(String[] args) {
 
 /* LESSON 01
@@ -14,8 +14,5 @@ public class MainApp {
 		lesson01.firstArray();
 		lesson01.twoDigitAfter();
 		lesson01.digitSum();
-
-
-
 	}
 }
