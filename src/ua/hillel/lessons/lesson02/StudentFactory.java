@@ -1,10 +1,5 @@
 package ua.hillel.lessons.lesson02;
 
-/**
- * @autor Ihor Sutulov
- * @return Odject Student with String field Name and Int field Age
- * @version 1.0
- */
 public class StudentFactory {
 	Student student = new Student();
 
