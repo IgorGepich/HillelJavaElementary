@@ -1,4 +1,4 @@
-package ua.hillel.lessons;
+package ua.hillel.lessons.Constants;
 
 public class Constants {
 	public static final String LINE_SEPARATOR = "------------------------";
