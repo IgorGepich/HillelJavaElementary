@@ -7,6 +7,4 @@ public class Delegate {
 	Delegate(){
 		printerToCLI.stringConverter();
 	}
-
-
 }

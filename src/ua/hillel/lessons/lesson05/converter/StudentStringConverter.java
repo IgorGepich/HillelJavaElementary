@@ -7,7 +7,7 @@ public class StudentStringConverter implements IStudentStringConverter {
 	@Override
 	public String converter(Student student){
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("\"name:\" ")
+		stringBuilder.append("\"firstName:\" ")
 						.append(student.getFirstName())
 						.append(", \"lastName:\" ")
 						.append(student.getLastName())

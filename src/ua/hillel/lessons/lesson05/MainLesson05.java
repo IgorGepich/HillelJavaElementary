@@ -30,8 +30,5 @@ public class MainLesson05 {
 		PrinterToCLI printerToCLI = new PrinterToCLI();
 		System.out.println("Print converting to string obj Student to CLI:");
 		printerToCLI.printer(student);
-
-		Stub stub = new Stub();
-		stub.converter(student);
 	}
 }

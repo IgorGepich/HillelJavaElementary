@@ -8,9 +8,8 @@ public class PrinterToCLI implements IStudentPrinter {
 	StudentStringConverter stringConverter = new StudentStringConverter();
 
 	@Override
-	public String printer(Student student) {
+	public void printer(Student student) {
 		System.out.println(stringConverter.converter(student));
-		return null;
 	}
 
 	public void stringConverter() {

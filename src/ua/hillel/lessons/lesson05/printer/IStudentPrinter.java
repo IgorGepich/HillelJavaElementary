@@ -4,5 +4,5 @@ import ua.hillel.lessons.lesson05.Student;
 
 public interface IStudentPrinter {
 
-	String printer(Student student);
+	void printer(Student student);
 }

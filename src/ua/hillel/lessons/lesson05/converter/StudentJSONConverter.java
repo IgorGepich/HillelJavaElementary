@@ -22,7 +22,5 @@ public class StudentJSONConverter implements IStudentStringConverter{
 						.append("\"age\": ")
 						.append(student.getAge());
 		return jsonBuilder.toString();
-
-
 	}
 }
