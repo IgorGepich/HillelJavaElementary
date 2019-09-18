@@ -6,7 +6,7 @@ package ua.hillel.lessons.lesson02;
  * @version 1.0
  */
 
-import ua.hillel.lessons.Constants;
+import ua.hillel.lessons.Constants.Constants;
 
 public class MainLesson02 {
 	public static void main(String[] args) {
