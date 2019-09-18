@@ -3,6 +3,7 @@
 out/production/HillelPractice/ua/hillel/*.*
 out/production/HillelPractice/ua/hillel/UiUtils/*.*
 out/production/HillelPractice/META-INF/*.*
+/out/production/HillelPractice/ua/hillel/lessons/kata/
 
 src/ua/hillel/lessons/homeworktest
 
@@ -26,3 +27,4 @@ src/META-INF/*.*
 #*.zip
 #*.tar.gz
 #.rar
+
