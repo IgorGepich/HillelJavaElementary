@@ -1,5 +1,5 @@
 package ua.hillel.lessons.kata;
-/*
+/**
 This method give user opportunity to check can the entered number divisible by three or not
  */
 
