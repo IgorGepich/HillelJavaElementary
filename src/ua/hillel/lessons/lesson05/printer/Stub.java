@@ -1,5 +1,10 @@
 package ua.hillel.lessons.lesson05.printer;
 
-public class Stub  {
+import ua.hillel.lessons.lesson05.Student;
 
+public class Stub implements IStudentPrinter {
+	@Override
+	public void printer(Student student) {
+		//TODO Do nothing
+	}
 }
