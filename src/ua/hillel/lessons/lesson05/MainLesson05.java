@@ -4,6 +4,7 @@ import ua.hillel.lessons.lesson05.converter.*;
 import ua.hillel.lessons.lesson05.printer.DelegatingPrinters;
 import ua.hillel.lessons.lesson05.printer.IStudentPrinter;
 import ua.hillel.lessons.lesson05.printer.PrinterToCLI;
+import ua.hillel.lessons.lesson05.printer.Stub;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,16 +39,20 @@ public class MainLesson05 {
 		IStudentStringConverter studentIniConverter = new StudentINIConverter();
 		IStudentStringConverter studentXmlConverter = new StudentXMLConverter();
 
+
 		IStudentPrinter stringPrinter = new PrinterToCLI(studentStringConverter);
 		IStudentPrinter jsonPrinter = new PrinterToCLI(studentJsonConverter);
 		IStudentPrinter iniPrinter = new PrinterToCLI(studentIniConverter);
 		IStudentPrinter xmlPrinter = new PrinterToCLI(studentXmlConverter);
+		IStudentPrinter stubPrinter = new Stub();
+		stubPrinter.printer(student);
 
 		List<IStudentPrinter> iStudentPrinterList = new ArrayList<>();
 		iStudentPrinterList.add(stringPrinter);
 		iStudentPrinterList.add(jsonPrinter);
 		iStudentPrinterList.add(iniPrinter);
 		iStudentPrinterList.add(xmlPrinter);
+		iStudentPrinterList.add(stubPrinter);
 
 		IStudentPrinter iStudentPrinter = new DelegatingPrinters(iStudentPrinterList);
 		iStudentPrinter.printer(student);
