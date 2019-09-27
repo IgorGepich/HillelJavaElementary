@@ -63,6 +63,16 @@ public class Angiosperms extends SeedPlants {
 		return flowers;
 	}
 
+	public String hasFlowers(){
+		if(isFlowers() == true){
+			return "the plant has a flower.";
+		}
+		else {
+			return "the plant hasn't any flower";
+		}
+
+	}
+
 	void setFlowers(boolean flowers) {
 		this.flowers = flowers;
 	}
