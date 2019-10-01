@@ -19,5 +19,13 @@ public class MainLesson07Lifecycle {
 			System.out.println(String.format("Child name %s \nwas born %s \nwith wight %.2f \ngender %s",
 					params.name, params.birthdate, params.weight, params.gender));
 		}
+
+		@Override
+		public void onHumanKindergarten(KindergartenParams params) {
+			System.out.println(String.format("Child name /s",
+					params.));
+		}
+
+
 	}
 }
