@@ -1,6 +1,9 @@
 package ua.hillel.lessons.lesson07.studentCompare.students;
 
 public class Student{
+	/**
+	 * @param studentAge age of the student
+	 */
 	public int studentAge;
 	public String studentName;
 
@@ -21,6 +24,11 @@ public class Student{
 		this.studentName = studentName;
 	}
 
+	/**
+	 * Creates instance of the class
+	 * @param studentName set name of the student to the Object Student
+	 * @param age set age of the student to the Object Student
+	 */
 	public Student(String studentName, int age){
 		this.studentName = studentName;
 		this.studentAge = age;

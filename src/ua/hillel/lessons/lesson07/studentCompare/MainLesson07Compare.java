@@ -7,7 +7,10 @@ import ua.hillel.lessons.lesson07.studentCompare.students.StudentGroup;
 
 import java.util.Collections;
 
-public class MainCompare {
+public class MainLesson07Compare {
+	/**
+	 * The main entry point
+	 */
 	public static void main(String[] args) {
 
 		StudentGroup studentGroup = new StudentGroup();
@@ -29,7 +32,7 @@ public class MainCompare {
 		studentGroup.printStudent();
 		//sort Collection by Age if Names is the same
 		System.out.println(Constants.LINE_SEPARATOR);
-		//refill Collection
+		//refill Collection for the clear sorting
 		studentGroup.fillGroup();
 		Collections.sort(studentGroup.studentGroup, CompareByName.SameName);
 		studentGroup.printStudentGroup();
