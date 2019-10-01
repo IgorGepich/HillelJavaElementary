@@ -26,7 +26,7 @@ public class MainCompare {
 		Collections.sort(studentGroup.studentGroup, CompareByName.NameComparator);
 		//print result
 		System.out.println("----------------Sort group of students by name--------------------");
-		studentGroup.printStudentGroup();
+		studentGroup.printStudent();
 		//sort Collection by Age if Names is the same
 		System.out.println(Constants.LINE_SEPARATOR);
 		//refill Collection

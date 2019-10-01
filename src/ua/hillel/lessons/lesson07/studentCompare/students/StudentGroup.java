@@ -15,4 +15,11 @@ public class StudentGroup {
 	public void printStudentGroup(){
 		for (Object o : studentGroup) System.out.println(o);
 	}
+
+	//lambda realisation method
+	//the method printStudent performs the same function as the method printStudentGroup
+	//experiment for myself
+	public void printStudent(){
+		studentGroup.stream().forEach(System.out :: println);
+	}
 }
