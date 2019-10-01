@@ -5,11 +5,5 @@ public class ApartApp {
 		Kitchen kitchen = new Kitchen();
 		kitchen.kitchenCreate();
 		kitchen.printKitchenInfo();
-
-//		Window window = new Window();
-//		window.winCreateTest();
-//		window.printWindow();
-
-//		Window.testWindow2.toString();
 	}
 }
