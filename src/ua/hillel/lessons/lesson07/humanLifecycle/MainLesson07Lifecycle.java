@@ -1,6 +1,6 @@
-package ua.hillel.lessons.lesson07;
+package ua.hillel.lessons.lesson07.humanLifecycle;
 
-public class MainLesson07 {
+public class MainLesson07Lifecycle {
 	/**
 	 * The main entry point
 	 */
@@ -16,9 +16,8 @@ public class MainLesson07 {
 
 		@Override
 		public void onHumanWasBorn(HumanBornParams params) {
-			System.out.println(String.format("Child was born %s with wight %.2f and gender %s",
-					params.birthdate, params.weight, params.gender));
-
+			System.out.println(String.format("Child name %s \nwas born %s \nwith wight %.2f \ngender %s",
+					params.name, params.birthdate, params.weight, params.gender));
 		}
 	}
 }

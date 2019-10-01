@@ -1,23 +1,30 @@
-package ua.hillel.lessons.lesson07;
+package ua.hillel.lessons.lesson07.humanLifecycle;
 
 import java.util.Date;
-
 /**
  *  The interface defines an observer over {@link HumanLifecycle}
  */
 public interface IHumanLifecycleObserver {
+	/**
+	 * Handles the first event in a human life.
+	 * @param params The stage parameters.
+	 */
 	// on - на событии, реакция на определенное действие, далее описание этого события
-
-
-//	void onHumanWasBorn(Date birthdate, float weight, String gender);
 	void onHumanWasBorn(HumanBornParams params);
-
+	/**
+	 * Attributes of the born stage of a human
+	 */
 	class HumanBornParams{
+	/**
+	* @param birthdate the date when the human was born.
+	* @param weight the weight of the child in kilograms.
+	* @param gender the tolerant gender of the child.
+	**/
+		public String name;
 		public Date birthdate;
 		public float weight;
-		/**
-		 *  The tolerant gender of the child
-		 */
 		public String gender;
 	}
+
+
 }
