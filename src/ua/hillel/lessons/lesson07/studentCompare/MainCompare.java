@@ -11,8 +11,6 @@ public class MainCompare {
 	public static void main(String[] args) {
 
 		StudentGroup studentGroup = new StudentGroup();
-		CompareByAge compareByAge = new CompareByAge();
-		CompareByName compareByName = new CompareByName();
 		// fill Collection group of students by random name from studentsNamesArray
 		// and random age
 		studentGroup.fillGroup();
@@ -20,17 +18,19 @@ public class MainCompare {
 		System.out.println("------------------Not sorting group of students-------------------");
 		studentGroup.printStudentGroup();
 		// sort Collection of students by the age
-		Collections.sort(studentGroup.studentGroup, compareByAge.AgeComparator);
+		Collections.sort(studentGroup.studentGroup, CompareByAge.AgeComparator);
 		//print result
 		System.out.println("-----------------Sort group of students by age--------------------");
 		studentGroup.printStudentGroup();
 		// sort Collection of students by the name
-		Collections.sort(studentGroup.studentGroup, compareByName.NameComparator);
+		Collections.sort(studentGroup.studentGroup, CompareByName.NameComparator);
 		//print result
 		System.out.println("----------------Sort group of students by name--------------------");
 		studentGroup.printStudentGroup();
-		// sort Collection by Age if Names is the same
+		//sort Collection by Age if Names is the same
 		System.out.println(Constants.LINE_SEPARATOR);
+		//refill Collection
+		studentGroup.fillGroup();
 		Collections.sort(studentGroup.studentGroup, CompareByName.SameName);
 		studentGroup.printStudentGroup();
 
