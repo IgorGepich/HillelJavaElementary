@@ -1,6 +1,8 @@
 package ua.hillel.lessons.lesson08;
 
 import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.function.Supplier;
 
 public class MyTestOptional<Type> {
 
@@ -48,8 +50,31 @@ public class MyTestOptional<Type> {
 		else return this.value;
 	}
 
+	public String toString(){
+		return get().toString();
+	}
+
 	public int hashCode(){
-		return hashCode();
+		return Objects.hashCode(value);
+	}
+
+	public boolean equals(Object value) {
+		if (this == value) {
+			return true;
+		}
+		if (!(value instanceof MyTestOptional)) {
+			return false;
+		}
+		MyTestOptional<?> other = (MyTestOptional<?>) value;
+		return Objects.equals(value, other.value);
+	}
+
+	public Type orElseGet(Supplier<? extends Type> otherValue){
+		return value;
+	}
+
+	public void ifPresent(MyTestOptional<? super Type>myTestOptional){
+
 	}
 
 
