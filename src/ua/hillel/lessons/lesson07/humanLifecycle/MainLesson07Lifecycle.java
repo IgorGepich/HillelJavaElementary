@@ -22,8 +22,7 @@ public class MainLesson07Lifecycle {
 
 		@Override
 		public void onHumanKindergarten(KindergartenParams params) {
-			System.out.println(String.format("Child name /s",
-					params.));
+			System.out.println(String.format("Child name /s"));
 		}
 
 
