@@ -9,16 +9,12 @@ public class MainLesson08 {
 		int a =  5;
 		String b = "ig";
 		MyTestOptional<String> name = MyTestOptional.of("Igor");
-//		name.ifPresent(ad -> (<a>System.out.println(name));
-//			if(name.isPresent()) {
-//				System.out.println(name);
-//			}
+			if(name.isPresent()) {
+				System.out.println(name);
+			}
 
 		MyTestOptional<String> nameNext = MyTestOptional.of("Nastia");
 		assert nameNext.hashCode() == nameNext.hashCode();
 		System.out.println(nameNext.hashCode());
-
-//		nameNext.ifPresent(Consumer<>);
-
 	}
 }

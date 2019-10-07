@@ -76,6 +76,4 @@ public class MyTestOptional<Type> {
 	public void ifPresent(MyTestOptional<? super Type>myTestOptional){
 
 	}
-
-
 }
