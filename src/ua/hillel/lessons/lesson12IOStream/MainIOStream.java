@@ -1,7 +1,9 @@
 package ua.hillel.lessons.lesson12IOStream;
 
+import java.text.ParseException;
+
 public class MainIOStream {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 
 		PrintInFileHelloWorld printInFile = new PrintInFileHelloWorld();
 		printInFile.writeInFile();
@@ -13,7 +15,6 @@ public class MainIOStream {
 
 		HumanContact humanContact = new HumanContact();
 		humanContact.writeContactInFile();
-//		humanContact.readContactFromFile();
 		humanContact.readContactFromFileScanner();
 		humanContact.printer();
 	}

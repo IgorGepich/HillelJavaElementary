@@ -1,1 +1,10 @@
-TestName / TestLastName / 123 / Tue Apr 12 00:00:00 EET 343
+Slava / Abramovich / +380987766555 / 25.07.1967
+Konstantin / Kocenbogen / +38098765003 / 21.08.1989
+Natasha / Oladushkina / +38098555433 / 07.04.1988
+Igor / Kruzenshtern / +38098765433 / 09.06.1987
+Igor / Petrov / +380671234567 / 06.07.1980
+Ivan / Sidorov / +380672434567 / 16.01.1987
+Vasiliy / Pupkin / +380971234567 / 12.10.1999
+Petr / Ivanov / +380682334567 / 15.12.1995
+Katerina / Pupsikova / +380672554567 / 20.03.2000
+Anastasia / Dnestrovaya / +380682338867 / 12.02.1995
