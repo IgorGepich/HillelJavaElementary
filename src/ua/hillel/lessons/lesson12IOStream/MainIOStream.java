@@ -10,5 +10,11 @@ public class MainIOStream {
 		randomNumber.writeNumberInFile();
 		randomNumber.readNumberFromFile();
 		randomNumber.average();
+
+		HumanContact humanContact = new HumanContact();
+		humanContact.writeContactInFile();
+//		humanContact.readContactFromFile();
+		humanContact.readContactFromFileScanner();
+		humanContact.printer();
 	}
 }
