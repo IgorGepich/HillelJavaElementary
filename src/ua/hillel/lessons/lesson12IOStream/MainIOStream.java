@@ -17,5 +17,6 @@ public class MainIOStream {
 		humanContact.writeContactInFile();
 		humanContact.readContactFromFileScanner();
 		humanContact.printer();
+		humanContact.printFirstFiveContacts();
 	}
 }
