@@ -1,18 +1,27 @@
 package ua.hillel.lessons.lesson12IOStream;
 
-import java.text.ParseException;
-
 public class MainIOStream {
-	public static void main(String[] args) throws ParseException {
-
+	/**
+	 * The main entry point.
+	 */
+	public static void main(String[] args){
+		/**
+		 * First Part of the hometask.
+		 */
 		PrintInFileHelloWorld printInFile = new PrintInFileHelloWorld();
 		printInFile.writeInFile();
 
+		/**
+		 * Second Part of the hometask.
+		 */
 		RandomNumber randomNumber = new RandomNumber();
 		randomNumber.writeNumberInFile();
 		randomNumber.readNumberFromFile();
 		randomNumber.average();
 
+		/**
+		 * Third part of the hometask.
+		 */
 		HumanContact humanContact = new HumanContact();
 		humanContact.writeContactInFile();
 		humanContact.readContactFromFileScanner();

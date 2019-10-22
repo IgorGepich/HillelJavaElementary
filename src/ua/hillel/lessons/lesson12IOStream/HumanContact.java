@@ -9,14 +9,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
-import java.util.Comparator;
 
 public class HumanContact {
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
-
 	private GregorianCalendar birthDay;
+
 	private SimpleDateFormat formatForDateOf = new SimpleDateFormat("dd.MM.yyyy");
 
 	private List<HumanContact> humanContacts = new ArrayList<>();
@@ -41,11 +40,12 @@ public class HumanContact {
 				+ formatForDateOf.format(birthDay.getTime()) + "\n";
 	}
 
+	/**
+	 * Write contacts with fields: firstName, lastName, phoneNumber, birthDay in file contact_list.txt
+	 */
 	void writeContactInFile() {
 		try (PrintWriter writer = new PrintWriter(
 				new FileOutputStream("contact_list.txt"))) {
-			writer.print(new HumanContact("Slava", "Abramovich", "+380987766555",
-					birthDay = new GregorianCalendar(1967, Calendar.JULY, 25)));
 			writer.print(new HumanContact("Konstantin", "Kocenbogen", "+38098765003",
 					birthDay = new GregorianCalendar(1989, Calendar.AUGUST, 21)));
 			writer.print(new HumanContact("Natasha", "Oladushkina", "+38098555433",
@@ -54,6 +54,8 @@ public class HumanContact {
 					birthDay = new GregorianCalendar(1987, Calendar.JUNE, 9)));
 			writer.print(new HumanContact("Igor", "Petrov", "+380671234567",
 					birthDay = new GregorianCalendar(1980, Calendar.JULY, 6)));
+			writer.print(new HumanContact("Slava", "Abramovich", "+380987766555",
+					birthDay = new GregorianCalendar(1967, Calendar.JULY, 25)));
 			writer.print(new HumanContact("Ivan", "Sidorov", "+380672434567",
 					birthDay = new GregorianCalendar(1987, Calendar.JANUARY, 16)));
 			writer.print(new HumanContact("Vasiliy", "Pupkin", "+380971234567",
@@ -69,6 +71,11 @@ public class HumanContact {
 		}
 	}
 
+	/**
+	 * @param dataFromFile
+	 * @return gc - object of Gregorian Calendar
+	 * @throws ParseException
+	 */
 	private GregorianCalendar getMyCalendar(String dataFromFile) throws ParseException {
 		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
 		Date date = format.parse(dataFromFile); // scanner.NextLine()
@@ -77,10 +84,13 @@ public class HumanContact {
 		return gc;
 	}
 
+	/**
+	 * Read fields from file and add it to humanContacts Array
+	 */
 	void readContactFromFileScanner() {
 		Pattern pattern = Pattern.compile("[/\n]");
 		try (Scanner contactScanner = new Scanner(
-				new FileInputStream("contact_list.txt"), StandardCharsets.UTF_8.name())) {
+			new FileInputStream("contact_list.txt"), StandardCharsets.UTF_8.name())) {
 			contactScanner.useDelimiter(pattern);
 			while (contactScanner.hasNext()) {
 				humanContacts.add(new HumanContact(contactScanner.next(), contactScanner.next(), contactScanner.next(),
@@ -91,20 +101,32 @@ public class HumanContact {
 		}
 	}
 
+	/**
+	 * Compare objects in humanContact Array by date of birthday field.
+	 */
 	private static Comparator<HumanContact> CompareByBirthday = (human1, human2) -> {
 		int result = human1.getBirthDay().compareTo(human2.getBirthDay());
 		return result;
 	};
 
 	void printer() {
+		//Print unsorted Array.
 		System.out.println(humanContacts.toString());
-		Collections.sort(humanContacts, HumanContact.CompareByBirthday);
+		//Sort Array.
+		humanContacts.sort(HumanContact.CompareByBirthday);
+		//Print sorted Array.
 		System.out.println(humanContacts.toString());
 	}
 
+	/**
+	 * Print first five contacts from sorted Array humanContacts.
+	 */
 	void printFirstFiveContacts(){
-		for (int iterator = 0; iterator <= 4; iterator++){
-			System.out.println(humanContacts.iterator());
+		Iterator humanIterator = humanContacts.iterator();
+		int i = 0;
+		while (humanIterator.hasNext()){
+			if(i ++== 5) break;
+			System.out.print(humanIterator.next());
 		}
 	}
 }

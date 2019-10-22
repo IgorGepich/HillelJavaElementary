@@ -4,8 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
-public class PrintInFileHelloWorld {
-	public void writeInFile(){
+class PrintInFileHelloWorld {
+	/**
+	 * Write string in file.
+	 */
+	void writeInFile(){
 		try (PrintWriter writer = new PrintWriter(
 				new FileOutputStream("hello.txt"))){
 			writer.println("Hello World!");
