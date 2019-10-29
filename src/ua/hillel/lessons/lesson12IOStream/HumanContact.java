@@ -43,7 +43,7 @@ public class HumanContact {
 	/**
 	 * Write contacts with fields: firstName, lastName, phoneNumber, birthDay in file contact_list.txt
 	 */
-	void writeContactInFile() {
+	private void writeContactInFile() {
 		try (PrintWriter writer = new PrintWriter(
 				new FileOutputStream("contact_list.txt"))) {
 			writer.print(new HumanContact("Konstantin", "Kocenbogen", "+38098765003",
@@ -87,7 +87,7 @@ public class HumanContact {
 	/**
 	 * Read fields from file and add it to humanContacts Array
 	 */
-	void readContactFromFileScanner() {
+	private void readContactFromFileScanner() {
 		Pattern pattern = Pattern.compile("[/\n]");
 		try (Scanner contactScanner = new Scanner(
 			new FileInputStream("contact_list.txt"), StandardCharsets.UTF_8.name())) {
@@ -109,25 +109,36 @@ public class HumanContact {
 		return result;
 	};
 
-	void printer() {
+	private void printer() {
 		//Print unsorted Array.
 		System.out.println(humanContacts.toString());
 		//Sort Array.
 		humanContacts.sort(HumanContact.CompareByBirthday);
 		//Print sorted Array.
 		System.out.println(humanContacts.toString());
+		printFirstFiveContacts();
 	}
 
 	/**
 	 * Print first five contacts from sorted Array humanContacts.
 	 */
-	void printFirstFiveContacts(){
+	private void printFirstFiveContacts(){
 		Iterator humanIterator = humanContacts.iterator();
 		int i = 0;
 		while (humanIterator.hasNext()){
 			if(i ++== 5) break;
 			System.out.print(humanIterator.next());
 		}
+	}
+
+	void runOutputStream(){
+		writeContactInFile();
+		printer();
+	}
+
+	void runInputStream(){
+		readContactFromFileScanner();
+		printer();
 	}
 }
 
