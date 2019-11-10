@@ -8,16 +8,12 @@ public class MainOutputStream {
 		/**
 		 * First Part of the hometask.
 		 */
-		PrintInFileHelloWorld printInFile = new PrintInFileHelloWorld();
-		printInFile.writeInFile();
+		new PrintInFileHelloWorld().writeInFile();
 
 		/**
 		 * Second Part of the hometask.
 		 */
-		RandomNumber randomNumber = new RandomNumber();
-		randomNumber.writeNumberInFile();
-
-
+		new RandomNumber().writeNumberInFile();
 
 		/**
 		 * Third part of the hometask local Date.
@@ -30,8 +26,6 @@ public class MainOutputStream {
 		/**
 		 * Third part of the hometask gregorian calendar.
 		 */
-		HumanContact humanContact = new HumanContact();
-		humanContact.runOutputStream();
-
+		new HumanContact().runOutputStream();
 	}
 }
