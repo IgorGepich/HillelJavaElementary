@@ -1,8 +1,10 @@
 package ua.hillel.lessons.lesson12IOStream;
 
 import java.io.*;
+import java.time.Duration;
+import java.time.Instant;
 
-public class CopyBigFile {
+class CopyBigFile {
 	/**
 	 * File is located on local disk. file size = 4 Gb.
 	 */
@@ -17,8 +19,6 @@ public class CopyBigFile {
 				}
 				outputStream.write(readFile);
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -31,7 +31,8 @@ public class CopyBigFile {
 	 * Buffer 4096 byte
 	 */
 	void copyFile(){
-		long startTime = System.currentTimeMillis();
+		long startTime = System.nanoTime();
+		Instant start = Instant.now();
 		try(InputStream inputStream = new FileInputStream("Sing.m4v");
 			OutputStream outputStream = new FileOutputStream("SingCopy.m4v")) {
 			byte[] chunk = new byte[4096];
@@ -42,30 +43,33 @@ public class CopyBigFile {
 				}
 				outputStream.write(chunk);
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 		// Operation time measurement.
-		long finishTime = System.currentTimeMillis() - startTime;
+		long finishTime = System.nanoTime() - startTime;
+		Instant finish = Instant.now();
+		System.out.println("Time 1: " + Duration.between(start, finish).toMillis());
 		System.out.println("Time: " + finishTime/1000);
 	}
 
 	/**
 	 * Buffered Stream
 	 */
-	void bufferedRead() throws FileNotFoundException {
-		try(BufferedInputStream bufferedInputStream = new BufferedInputStream(
-				new FileInputStream("Sing.m4v"))){
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	void bufferedWrite() throws FileNotFoundException {
+	void bufferedCopyBigFileBuffered() {
 		try(BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
-				new FileOutputStream("SingBufferedCopy.m4v"))){
-		} catch (IOException e) {
+				new FileOutputStream("SingBufferedCopy.m4v"));
+				BufferedInputStream bufferedInputStream =
+				new BufferedInputStream(new FileInputStream("Sing.m4v")))
+		{
+			int value;
+			byte [] chung = new byte[1024];
+			while ((value = bufferedInputStream.read(chung)) != -1) {
+				bufferedOutputStream.write(chung, 0, value);
+			}
+		}
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
