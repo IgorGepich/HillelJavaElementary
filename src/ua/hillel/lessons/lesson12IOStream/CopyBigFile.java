@@ -9,7 +9,8 @@ class CopyBigFile {
 	 * File is located on local disk. file size = 4 Gb.
 	 */
 	void copyFileByByte(){
-		long startTime = System.currentTimeMillis();
+		long startTime = System.nanoTime();
+		Instant startMeasurement = Instant.now();
 		try(InputStream inputStream = new FileInputStream("Sing.m4v");
 			OutputStream outputStream = new FileOutputStream("SingCopyByByte.m4v")) {
 			while (inputStream.available() > 0){
@@ -23,8 +24,10 @@ class CopyBigFile {
 			e.printStackTrace();
 		}
 		// Operation time measurement.
-		long finishTime = System.currentTimeMillis() - startTime;
-			System.out.println("Time: " + finishTime/1000);
+		long finishTime = System.nanoTime() - startTime;
+		Instant finishMeasurement = Instant.now();
+		System.out.println("Time full copy: " + Duration.between(startMeasurement, finishMeasurement).toMillis());
+		System.out.println("Time: " + finishTime/1000);
 	}
 
 	/**
@@ -32,7 +35,7 @@ class CopyBigFile {
 	 */
 	void copyFile(){
 		long startTime = System.nanoTime();
-		Instant start = Instant.now();
+		Instant startMeasurement = Instant.now();
 		try(InputStream inputStream = new FileInputStream("Sing.m4v");
 			OutputStream outputStream = new FileOutputStream("SingCopy.m4v")) {
 			byte[] chunk = new byte[4096];
@@ -49,8 +52,8 @@ class CopyBigFile {
 		}
 		// Operation time measurement.
 		long finishTime = System.nanoTime() - startTime;
-		Instant finish = Instant.now();
-		System.out.println("Time 1: " + Duration.between(start, finish).toMillis());
+		Instant finishMeasurement = Instant.now();
+		System.out.println("Buffer 4096 byte: " + Duration.between(startMeasurement, finishMeasurement).toMillis());
 		System.out.println("Time: " + finishTime/1000);
 	}
 
