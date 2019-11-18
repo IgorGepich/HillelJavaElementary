@@ -2,24 +2,22 @@ package ua.hillel.lessons.lesson08;
 
 import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class MyTestOptional<Type> {
 
 	private Type value;
 
-	public MyTestOptional(Type value) {
+	MyTestOptional(Type value) {
 		this.value = value;
 	}
 
-	public boolean isPresent(){
-		if(value != null) {
-			return true;
-		}
-		else return false;
+	boolean isPresent(){
+		return value != null;
 	}
 
-	public Type get() {
+	private Type get() {
 		if(value == null){
 			throw new NoSuchElementException();
 		}
@@ -51,7 +49,11 @@ public class MyTestOptional<Type> {
 	}
 
 	public String toString(){
+		if(isPresent()){
 		return get().toString();
+		}else {
+			return "Not present";
+		}
 	}
 
 	public int hashCode(){
@@ -70,10 +72,12 @@ public class MyTestOptional<Type> {
 	}
 
 	public Type orElseGet(Supplier<? extends Type> otherValue){
-		return value;
+		return (value != null) ? value : otherValue.get();
 	}
 
-	public void ifPresent(MyTestOptional<? super Type>myTestOptional){
-
+	public void ifPresent(Consumer<Type> consumer){
+		if(value != null) {
+			consumer.accept(value);
+		}
 	}
 }
