@@ -5,6 +5,9 @@ import java.time.Duration;
 import java.time.Instant;
 
 class CopyBigFile {
+
+	File inputFilePath = new File("baroIcon.jpg");
+	File outputFilePath = new File("new_baro_Icon.jpg");
 	/**
 	 * File is located on local disk. file size = 4 Gb.
 	 */
@@ -33,23 +36,26 @@ class CopyBigFile {
 	/**
 	 * Buffer 4096 byte
 	 */
+
+	//	WORKING ON MISTAKES
 	void copyFile(){
 		long startTime = System.nanoTime();
 		Instant startMeasurement = Instant.now();
-		try(InputStream inputStream = new FileInputStream("Sing.m4v");
-			OutputStream outputStream = new FileOutputStream("SingCopy.m4v")) {
+		try(InputStream inputStream = new FileInputStream(inputFilePath);
+			OutputStream outputStream = new FileOutputStream(outputFilePath)) {
+			int test;
 			byte[] chunk = new byte[4096];
-			while (inputStream.available() > 0){
-				int readFile = inputStream.read(chunk);
-				if(readFile <= 0){
-					break;
-				}
-				outputStream.write(chunk);
+			while ((test = inputStream.read(chunk)) != -1){
+				outputStream.write(chunk, 0, test);
 			}
 		}
 		catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println(inputFilePath.length() + " input" );
+		System.out.println(outputFilePath.length() + " output");
+		System.out.println(outputFilePath.getAbsolutePath());
+
 		// Operation time measurement.
 		long finishTime = System.nanoTime() - startTime;
 		Instant finishMeasurement = Instant.now();
