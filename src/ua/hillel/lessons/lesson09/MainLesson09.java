@@ -1,10 +1,7 @@
 package ua.hillel.lessons.lesson09;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class MainLesson09 {
@@ -37,9 +34,11 @@ public class MainLesson09 {
 
 		List<CallLog> callLogList = new ArrayList<>();
 		callLogList.add(new CallLog("+380671234567", LocalDate.of(2019,8,1)));
+		callLogList.add(new CallLog("+380671234567", LocalDate.of(2019,1,4)));
 		callLogList.add(new CallLog("+380501234567", LocalDate.of(2019,9,5)));
 		callLogList.add(new CallLog("+380630123456", LocalDate.of(2019,9,6)));
 		callLogList.add(new CallLog("+380971234567", LocalDate.of(2019, 9, 7)));
+		callLogList.add(new CallLog("+380731234567", LocalDate.of(2019, 10, 7)));
 		callLogList.add(new CallLog("+380731234567", LocalDate.of(2019, 9, 7)));
 		callLogList.add(new CallLog("+380673212323", LocalDate.now().minusDays(2)));
 		callLogList.add(new CallLog("+380673212323", LocalDate.of(2019, 12, 21)));
@@ -57,37 +56,61 @@ public class MainLesson09 {
 
 		Contact findInContactsValues = new Contact();
 		findInContactsValues.findInContacts(contactList, "i");
-		findInContactsValues.printerToCLI();
+//		findInContactsValues.printerToCLI();
 
 		Message findInMessageValues = new Message();
 		findInMessageValues.findInMessages(messageList, "Hi");
-		findInMessageValues.printMessageToCLI();
+//		findInMessageValues.printMessageToCLI();
 
 
 		/**
 		 * 04 Task print on screen
 		 */
-		Map<Contact, List<CallLog>> group = new HashMap<>();
-
-		group = CombiningContactCallLog(contactList, callLogList);
-
-		for (Map.Entry<Contact, List<CallLog>> item: group.entrySet()) {
-			System.out.println(item.getKey() + ":");
+		Map<Contact, List<CallLog>> callLogGroup = new HashMap<>();
+		callLogGroup = CombiningContactCallLog(contactList, callLogList);
+		System.out.println("MAP:");
+		for (Map.Entry<Contact, List<CallLog>> item: callLogGroup.entrySet()) {
 			List<CallLog> listLogs = item.getValue();
-			for (CallLog logs : listLogs) {
-				System.out.println(logs);
-			}
+				System.out.println("Contact name: " + item.getKey().getSubscriberName() + " call number: " + item.getValue().size());
 		}
+
+		System.out.println("Task 5");
+		Comparator<Map.Entry<Contact, List<CallLog>>> sizeComparator =
+				Comparator.comparingInt(value -> value.getValue().size());
+				callLogGroup.entrySet()
+				.stream()
+				.sorted(sizeComparator.reversed())
+				.limit(5)
+				.forEach(element -> {
+					System.out.println("Contact name: " + element.getKey().getSubscriberName() + " Logs: " + element.getValue().size());
+				});
+
 	/**
 	* End 04 Task
 	*/
-//		List<Pair<Contact,Integer>> listOfTopFiveMessages = new ArrayList<>();
-//		listOfTopFiveMessages = topFiveMasseges(test2);
-//
-//		for (Pair<Contact,Integer> item: listOfTopFiveMessages) {
-//			System.out.println(item);
-//		}
 
+		/**
+		 * Task 05 Pair
+		 */
+		List<Pair<Contact, List<CallLog>>> listOfTopFiveCallLogs = new ArrayList<>();
+		for(Contact contact : contactList){
+			List<CallLog> tempCallLogs = new ArrayList<>();
+				for(CallLog callLog : callLogList){
+					if (contact.getPhoneNumber().equals(callLog.getPhoneNumber())){
+						tempCallLogs.add(callLog);
+					}
+				}
+			listOfTopFiveCallLogs.add(new Pair<>(contact, tempCallLogs));
+		}
+		listOfTopFiveCallLogs.sort(((o1, o2) -> Integer.compare(o2.getValue2().size(), o1.getValue2().size())));
+		int max = Math.min(listOfTopFiveCallLogs.size(), 5);
+		System.out.println(listOfTopFiveCallLogs.get(1));
+		for(Pair<Contact, List<CallLog>> singlePair : listOfTopFiveCallLogs){
+			if (max-- == 0){
+				break;
+			}
+			System.out.println(singlePair.getValue1().getSubscriberName() + " " + singlePair.getValue2().size());
+		}
 
 	//Main end
 	}
@@ -119,33 +142,9 @@ public class MainLesson09 {
 	/**
 	 * 05 Task
 	 */
-//	public static List<Pair<Contact,Integer>> topFiveCalls(Map<Contact, List<CallLog>> CombiningContactAndCallLog){
-//		List<Pair<Contact, Integer>> middleResultTopFiveCalls= new ArrayList<>();
-//		List<Pair<Contact, Integer>> resultTopFiveCalls= new ArrayList<>();
-//
-//		List<Integer> pairIntegers = new ArrayList<>();
-//
-//		for (Map.Entry<Contact, List<CallLog>> item: CombiningContactAndCallLog.entrySet()) {
-//			List<CallLog>listLogs = item.getValue();
-//			Integer numberOfCalls = listLogs.size();
-//			pairIntegers.add(numberOfCalls);
-//			Pair<Contact,Integer> pair = new Pair<>(item.getKey(),numberOfCalls);
-//			middleResultTopFiveCalls.add(pair);
-//		}
-//
-//		Collections.sort(middleResultTopFiveCalls, new Comparator<Pair<Contact, Integer>>() {
-//			@Override
-//			public int compare(Pair<Contact, Integer> o1, Pair<Contact, Integer> o2) {
-//				return Integer.compare(o2.getValue(), o1.getValue());
-//			}
-//		});
-//
-//		for (int i = 0; i < 5; i++) {
-//			resultTopFiveCalls.add(middleResultTopFiveCalls.get(i));
-//		}
-//
-//		return resultTopFiveCalls;
-//	}
+
+
+
 	/**
 	 * 05 End
 	 */

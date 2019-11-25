@@ -8,11 +8,11 @@ public class CallLog {
 	private String phoneNumber;
 	private LocalDate localDate;
 
-	public String getPhoneNumber() {
+	String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public LocalDate getLocalDate() {
+	private LocalDate getLocalDate() {
 		return localDate;
 	}
 

@@ -16,7 +16,7 @@ public class Contact {
 
 	Contact(){}
 
-	private String getSubscriberName() {
+	String getSubscriberName() {
 		return subscriberName;
 	}
 
