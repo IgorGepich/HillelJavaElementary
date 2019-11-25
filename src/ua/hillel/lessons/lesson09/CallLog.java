@@ -36,25 +36,4 @@ public class CallLog {
 		return Objects.hash(getPhoneNumber(), getLocalDate());
 	}
 
-//	SimpleDateFormat callLogDate = new SimpleDateFormat("EEEE, MMMM d, yyyy");
-	public String dateFormat(){
-	LocalDate localDate1 = LocalDate.of(2019, 06, 13);
-	return localDate1.toString();
-	}
-
-
-
-	/**
-	 * Find method
-	 */
-//	public Collection<CallLog> find(Collection<CallLog> callLogList, String fieldToFind) {
-//		List<CallLog> findCallLogValues = new ArrayList<CallLog>();
-//		for (CallLog foundFild : callLogList) {
-//			if(foundFild.getPhoneNumber().contains(fieldToFind)
-//					|| foundFild.getLocalDate().contains()){
-//				findCallLogValues.add(foundFild);
-//			}
-//		}
-//		return findCallLogValues;
-//	}
 }
