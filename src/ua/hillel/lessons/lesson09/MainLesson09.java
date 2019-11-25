@@ -66,13 +66,19 @@ public class MainLesson09 {
 		/**
 		 * 04 Task print on screen
 		 */
-		Map<Contact, List<CallLog>> callLogGroup = new HashMap<>();
+		Map<Contact, List<CallLog>> callLogGroup;
 		callLogGroup = CombiningContactCallLog(contactList, callLogList);
 		System.out.println("MAP:");
 		for (Map.Entry<Contact, List<CallLog>> item: callLogGroup.entrySet()) {
 			List<CallLog> listLogs = item.getValue();
 				System.out.println("Contact name: " + item.getKey().getSubscriberName() + " call number: " + item.getValue().size());
 		}
+	/**
+	* End 04 Task
+	*/
+	/**
+	 * Task 05
+	 */
 
 		System.out.println("Task 5");
 		Comparator<Map.Entry<Contact, List<CallLog>>> sizeComparator =
@@ -85,9 +91,6 @@ public class MainLesson09 {
 					System.out.println("Contact name: " + element.getKey().getSubscriberName() + " Logs: " + element.getValue().size());
 				});
 
-	/**
-	* End 04 Task
-	*/
 
 		/**
 		 * Task 05 Pair
@@ -104,14 +107,12 @@ public class MainLesson09 {
 		}
 		listOfTopFiveCallLogs.sort(((o1, o2) -> Integer.compare(o2.getValue2().size(), o1.getValue2().size())));
 		int max = Math.min(listOfTopFiveCallLogs.size(), 5);
-		System.out.println(listOfTopFiveCallLogs.get(1));
 		for(Pair<Contact, List<CallLog>> singlePair : listOfTopFiveCallLogs){
 			if (max-- == 0){
 				break;
 			}
 			System.out.println(singlePair.getValue1().getSubscriberName() + " " + singlePair.getValue2().size());
 		}
-
 	//Main end
 	}
 
@@ -120,7 +121,8 @@ public class MainLesson09 {
 	 */
 
 	private static Map<Contact, List<CallLog>> CombiningContactCallLog
-				(List<Contact> contactList, List<CallLog> callLogList){
+				(List<Contact> contactList, List<CallLog> callLogList)
+	{
 
 		Map<Contact, List<CallLog>> resultCombiningContactCallLog = new HashMap<>();
 
@@ -137,15 +139,5 @@ public class MainLesson09 {
 	}
 	/**
 	 * END Task 4 Combine call for contact
-	 */
-
-	/**
-	 * 05 Task
-	 */
-
-
-
-	/**
-	 * 05 End
 	 */
 }
