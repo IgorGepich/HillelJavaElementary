@@ -1,13 +1,13 @@
-//Done
+>Done
 1.  Реализуйте классы, описывающие контакт в телефонной книге,
         запись в журнале звонков и одно сообщение (Contact, CallLog, Message).
-//Done
+>Done
 2.  Определите тестовый набор контактов, звонков и сообщений,
         используя коллекции (List<Contact>, List<CallLog>, List<Message>).
-//Done
+>Done
 3.  Реализуйте функции текстового поиска по коллекциям с контактами,
         звонками и сообщениями (Collection<Contact> find(Collection<Contact>, String)).
-//Done
+>Done
 4.  Используя отображения, сгруппируйте все звонки по контактам
         и выведите на консоль (Map<Contact, List<CallLog>>, Contact.hashCode, Contact.equals).
 
