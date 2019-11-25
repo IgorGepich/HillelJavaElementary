@@ -35,5 +35,4 @@ public class CallLog {
 	public int hashCode() {
 		return Objects.hash(getPhoneNumber(), getLocalDate());
 	}
-
 }

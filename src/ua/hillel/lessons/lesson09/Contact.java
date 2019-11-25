@@ -40,32 +40,28 @@ public class Contact {
 	}
 
 	public String toString(){
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("Contact name: ")
-				.append(getSubscriberName())
-				.append(" Contact number: ")
-				.append(getPhoneNumber());
-		return stringBuilder.toString();
+		String stringBuilder = "Contact name: " +
+				getSubscriberName() +
+				" Contact number: " +
+				getPhoneNumber();
+		return stringBuilder;
 	}
 
 	/**
 	 * Find method
 	 */
 
-	List<Contact> findContactValues = new ArrayList<>();
-	public Collection<Contact> findInContacts(Collection<Contact> contactList, String fieldToFind) {
+	private List<Contact> findContactValues = new ArrayList<>();
+	void findInContacts(Collection<Contact> contactList, String fieldToFind) {
 		for (Contact foundField : contactList) {
 			if(foundField.getPhoneNumber().contains(fieldToFind)
 				|| foundField.getSubscriberName().toLowerCase().contains(fieldToFind.toLowerCase())){
 				findContactValues.add(foundField);
 			}
 		}
-		return findContactValues;
 	}
 
 	public void printerToCLI(){
 		System.out.println(findContactValues.toString());
 	}
-
-//	Pair<Contact, Integer> pair = new Pair<Contact, Integer>(getSubscriberName(), 100);
 }
