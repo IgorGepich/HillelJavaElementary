@@ -7,19 +7,19 @@ import java.util.Objects;
 
 
 public class Message {
-	private String subscriberName;
+	private String phoneNumber;
 	private String messageText;
 
-	private String getSubscriberName() {
-		return subscriberName;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	private String getMessageText() {
+	public String getMessageText() {
 		return messageText;
 	}
 
-	Message(String subscriberName, String messageText) {
-		this.subscriberName = subscriberName;
+	Message(String phoneNumber, String messageText) {
+		this.phoneNumber = phoneNumber;
 		this.messageText = messageText;
 	}
 
@@ -30,20 +30,20 @@ public class Message {
 		if (this == o) return true;
 		if (!(o instanceof Message)) return false;
 		Message message = (Message) o;
-		return getSubscriberName().equals(message.getSubscriberName()) &&
+		return getPhoneNumber().equals(message.getPhoneNumber()) &&
 				getMessageText().equals(message.getMessageText()) &&
 				findMessageValues.equals(message.findMessageValues);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(getSubscriberName(), getMessageText(), findMessageValues);
+		return Objects.hash(getPhoneNumber(), getMessageText(), findMessageValues);
 	}
 
 	public String toString(){
 		StringBuilder messageStringBuilder = new StringBuilder();
 			messageStringBuilder.append("Contact name: ")
-								.append(getSubscriberName())
+								.append(getPhoneNumber())
 								.append(" Message text: ")
 								.append(getMessageText());
 		return messageStringBuilder.toString();
@@ -52,7 +52,7 @@ public class Message {
 	List<Message> findMessageValues = new ArrayList<>();
 	Collection<Message> findInMessages(Collection<Message> messageList, String fieldToFind) {
 		for (Message foundField : messageList) {
-			if(foundField.getSubscriberName().toLowerCase().contains(fieldToFind.toLowerCase())
+			if(foundField.getPhoneNumber().toLowerCase().contains(fieldToFind.toLowerCase())
 					|| foundField.getMessageText().toLowerCase().contains(fieldToFind.toLowerCase())){
 				findMessageValues.add(foundField);
 			}
