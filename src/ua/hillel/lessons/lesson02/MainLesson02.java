@@ -10,6 +10,7 @@ import ua.hillel.lessons.Constants.Constants;
 
 public class MainLesson02 {
 	public static void main(String[] args) {
+
 		SortAndFind sortAndFind = new SortAndFind();
 		sortAndFind.fillArray();
 		System.out.println(Constants.LINE_SEPARATOR);

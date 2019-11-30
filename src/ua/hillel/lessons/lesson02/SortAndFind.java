@@ -14,6 +14,7 @@ public class SortAndFind {
 		}
 		return studentsArray;
 	}
+
 	Student[] sortStudentsByID(){
 			for (int i = 0; i < studentsArray.length; i++){
 			for (int j = 0; j < studentsArray.length; j++){
@@ -41,6 +42,7 @@ public class SortAndFind {
 			}
 		}
 	}
+
 	private Student findStudentByName(Student[] studentsArray, String nameToFind) {
 		Student foundStudents = null;
 		for (Student student : studentsArray) {
@@ -51,10 +53,12 @@ public class SortAndFind {
 		}
 		return foundStudents;
 	}
+
 	void sortByName(){
 		Arrays.sort(studentsArray);
 		System.out.println("Sort array by Name field" + Arrays.asList(studentsArray));
 	}
+
 	public void print(){
 		for (Student student : studentsArray) {
 			System.out.println(student.name + " " + student.studentId);
