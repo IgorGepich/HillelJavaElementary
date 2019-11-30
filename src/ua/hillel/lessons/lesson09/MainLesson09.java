@@ -164,7 +164,7 @@ public class MainLesson09 {
 	 */
 
 	/**
-	 *
+	 * Combining Contact with Messages
 	 */
 	private static Map<Contact, List<Message>> CombiningContactMessages
 	(List<Contact> contactList, List<Message> messageList)
