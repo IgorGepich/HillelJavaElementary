@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class StudentGroup {
 	public ArrayList studentGroup = new ArrayList<String>();
+
 	public ArrayList fillGroup(){
 		StudentFactory studentFactory = new StudentFactory();
 		for(int i = 0; i < 10; i++){
